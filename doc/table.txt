@@ -1,0 +1,42 @@
+功能
+
+ 定时扫描数据库 ，添加PF规则
+
+  定义：
+  VPNserver   规则添加的机器，
+  
+  vpnip  用户的IP，数据包来源，
+
+
+  soureip   客户访问的网站IP，
+
+
+ 1. 数据库表 pfonline  VPN新连接用户
+
+  表结构，
+
+  IP  up down tcp
+
+  ip:就是 VPN指定IP， vpnip
+  up  ：上传限制速度
+  down  下载速度
+  tcp   tcp连接数 就是连接  soureip  的TCP连接数量
+
+
+ 2.规则说明，
+
+   1.限速
+
+   限制 从 vpnip 过来的上传下载速度；
+
+   2.TCP限制，，，
+   限制从  vpnip 过来的访问指定IP的，TCP连接数量
+
+
+ 软件原理
+
+  定时从数据库 pfonline  取 新连接的IP，， 即时添加到PF规则，
+
+  
+同理  pfoffline 表里，是删除 跟新断开的IP，。。有关的规则
+

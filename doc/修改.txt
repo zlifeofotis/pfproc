@@ -1,0 +1,33 @@
+1.Memcache配置,文件位置config/application.cfg.php
+
+注释现有的文件缓存'engine' => 'file',打开Memcache缓存,按以下说明配置相关参数(下面是application.cfg.php相关部分代码)
+/**
+* Cache 配置参数，根据 Cache engine 不同，配置项定义如下： <br/>
+* 当使用 Memcached 做 cache 存储时， engine = memcache （推荐） <br/>
+*      host            Memcached服务器地址 <br/>
+*      port            端口号 <br/>
+*      timeout         超时时间(秒) <br/>
+*      prefix          键名前缀 <br/>
+*      persistent      是否使用持续化连接 <br/>
+* 当使用文件做 cache 存储时， engine = file <br/>
+*      root            文件Cache的根路径。可选，默认值为 PATH_APP_CACHE <br/>
+* @var array
+*/
+static public $cache = array(
+//            array( // Memcache Cache
+//                'engine'        => 'memcache',
+//                'host'          => '192.168.158.14',
+//                'port'          => 11211,
+//                'timeout'       => 10,
+//                'prefix'        => 'weip_',
+//                'persistent'    => true,
+//            ),
+    array( // File Cache
+'engine'        => 'file',
+//      'root'          => PATH_APP_CACHE,
+    ),
+);
+
+2.修改调用服务器端的接口地址,文件位置config/cmread.cfg.php
+
+修改代码define('FORWARD_BASE', 'http://61.128.172.222:8080/cmread-webapp/');里面的地址

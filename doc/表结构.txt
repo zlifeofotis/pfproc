@@ -1,0 +1,7 @@
+select   tcpnum,upload,download,homeip from vpnuser where  cash > 0tcpnum  TCP连接数upload     上传速度download  下载速度homeip    VPN ip  就是用户IP， 从IP to anycash > 0  合法用户
+
+
+程序首先查询，select  zt from pfzt where id=1如果zt=1.就是表示规则需要更新，如果zt=0   表示服务器规则不需要动
+
+
+其他没有了吧，如果zt=1  。就是select   tcpnum,upload,download,homeip from vpnuser where  cash > 0  生成所有规则，如果zt=0  什么都不做，
